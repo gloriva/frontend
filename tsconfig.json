@@ -5,6 +5,7 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    // "types": ["react", "react-router-dom"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
