@@ -4,8 +4,8 @@ import {
   ChurchVision,
   PastorIntroduction,
 } from "@/features/churchInfo";
-import { fadeInUp } from "@/features/churchInfo/constants/FadeInUp";
-import { stagger } from "@/features/churchInfo/constants/Stagger";
+import { fadeInUp } from "@/shared/constants/FadeInUp";
+import { stagger } from "@/shared/constants/Stagger";
 import { motion } from "framer-motion";
 
 const About = () => {
