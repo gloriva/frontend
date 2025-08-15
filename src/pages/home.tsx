@@ -1,7 +1,7 @@
 import { HeroSection } from "@/features/churchInfo";
 import { WorshipSchedule } from "@/features/churchInfo";
 import { ChurchIntro } from "@/features/churchInfo";
-import { RecentNews } from "@/features/board";
+import { RecentNews } from "@/features/notice";
 import { LocationInfo } from "@/features/location";
 
 const Home = () => {

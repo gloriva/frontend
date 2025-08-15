@@ -3,50 +3,11 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Card } from "@/shared/ui/Card";
 import { Section } from "@/shared/ui/Section";
-
-interface Notice {
-  title: string;
-  date: string;
-  category: string;
-  important: boolean;
-}
-
-const recentNotices: Notice[] = [
-  {
-    title: "2025년 신년 감사예배 안내",
-    date: "2025.01.15",
-    category: "예배",
-    important: true,
-  },
-  {
-    title: "청년부 겨울 수련회 모집",
-    date: "2025.01.14",
-    category: "교육",
-    important: false,
-  },
-  {
-    title: "주일학교 교사 모집",
-    date: "2025.01.13",
-    category: "교육",
-    important: false,
-  },
-];
+import { fadeInUp } from "@/shared/constants/FadeInUp";
+import { stagger } from "@/shared/constants/Stagger";
+import { recentNotices } from "@/features/notice/constants/RecentNotices";
 
 function RecentNews() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-  };
-
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   return (
     <Section background="white">
       <motion.div
