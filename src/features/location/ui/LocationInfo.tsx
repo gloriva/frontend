@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, ChevronRight } from "lucide-react";
 
-export const LocationInfo: React.FC = () => {
+export default function LocationInfo() {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -92,4 +91,4 @@ export const LocationInfo: React.FC = () => {
       </div>
     </section>
   );
-};
+}

@@ -1,10 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Clock } from "lucide-react";
 import { Button } from "@/shared/ui/Button";
 
-export const HeroSection = () => {
+export default function HeroSection() {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -65,4 +64,4 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};
+}

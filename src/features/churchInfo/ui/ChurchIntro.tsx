@@ -1,11 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Section } from "@/shared/ui/Section";
 import { Button } from "@/shared/ui/Button";
-
-export const ChurchIntro: React.FC = () => {
+function ChurchIntro() {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -42,7 +40,7 @@ export const ChurchIntro: React.FC = () => {
               <div className="text-gray-600">교회 역사</div>
             </div>
           </div>
-          <Link to="/about">
+          <Link to="/home/about">
             <Button variant="primary" icon={ChevronRight}>
               더 자세히 보기
             </Button>
@@ -66,4 +64,6 @@ export const ChurchIntro: React.FC = () => {
       </div>
     </Section>
   );
-};
+}
+
+export default ChurchIntro;

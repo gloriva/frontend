@@ -1,8 +1,8 @@
-import { HeroSection } from "@/widgets/ui/HeroSection";
-import { WorshipSchedule } from "@/features/worship/ui/WorshipSchedule";
-import { ChurchIntro } from "@/features/church/ui/ChurchIntro";
-import { RecentNews } from "@/features/announcements/ui/RecentNews";
-import { LocationInfo } from "@/features/location/ui/LocationInfo";
+import { HeroSection } from "@/features/churchInfo";
+import { WorshipSchedule } from "@/features/churchInfo";
+import { ChurchIntro } from "@/features/churchInfo";
+import { RecentNews } from "@/features/board";
+import { LocationInfo } from "@/features/location";
 
 const Home = () => {
   return (

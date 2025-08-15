@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
@@ -33,7 +32,7 @@ const recentNotices: Notice[] = [
   },
 ];
 
-export const RecentNews: React.FC = () => {
+function RecentNews() {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -64,7 +63,7 @@ export const RecentNews: React.FC = () => {
           <p className="text-lg text-gray-600">교회의 최신 소식을 확인하세요</p>
         </div>
         <Link
-          to="/announcements"
+          to="/home/announcements"
           className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center"
         >
           전체 보기
@@ -102,4 +101,6 @@ export const RecentNews: React.FC = () => {
       </motion.div>
     </Section>
   );
-};
+}
+
+export default RecentNews;
