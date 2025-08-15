@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Target } from "lucide-react";
-import { fadeInUp } from "../constants/FadeInUp";
+import { fadeInUp } from "../../../shared/constants/FadeInUp";
 
 export default function PastorIntroduction() {
   return (
