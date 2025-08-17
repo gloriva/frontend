@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Church, User, LogIn } from "lucide-react";
+import { Menu, X, Church, User, LogIn, UserCog } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { navItems } from "@/shared/constants/headerNavigation";
 
-const Header: React.FC = () => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const location = useLocation();
-
-  const navItems = [
-    { path: "/", label: "홈" },
-    { path: "/home/about", label: "교회소개" },
-    { path: "/home/worship", label: "예배안내" },
-    // { path: "/home/education", label: "교육부서" },
-    { path: "/home/announcements", label: "공지사항" },
-    { path: "/home/gallery", label: "갤러리" },
-    { path: "/home/location", label: "오시는길" },
-  ];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -92,6 +83,14 @@ const Header: React.FC = () => {
                     >
                       <User className="h-4 w-4 mr-3" />
                       마이페이지
+                    </Link>
+                    <Link
+                      to="/admin"
+                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <UserCog className="h-4 w-4 mr-3" />
+                      관리자 페이지
                     </Link>
                   </motion.div>
                 )}

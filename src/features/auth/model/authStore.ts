@@ -20,7 +20,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: false,
   isLoading: false,
 
-  login: async (email: string, password: string) => {
+  login: async (email: string, _password: string) => {
     set({ isLoading: true });
     try {
       // 실제 로그인 API 호출
@@ -44,7 +44,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
   },
 
-  signup: async (name: string, email: string, password: string) => {
+  signup: async (name: string, email: string, _password: string) => {
     set({ isLoading: true });
     try {
       // 실제 회원가입 API 호출

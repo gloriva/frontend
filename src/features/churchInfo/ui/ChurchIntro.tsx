@@ -3,13 +3,8 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Section } from "@/shared/ui/Section";
 import { Button } from "@/shared/ui/Button";
+import { fadeInUp } from "@/shared/constants/FadeInUp";
 function ChurchIntro() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-  };
-
   return (
     <Section background="gray">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

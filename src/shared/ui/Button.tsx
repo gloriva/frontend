@@ -1,14 +1,13 @@
-import type { LucideProps } from "lucide-react";
 import React from "react";
+import type { LucideIcon } from "lucide-react";
 
 interface ButtonProps {
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
-  icon?: React.ForwardRefExoticComponent<
-    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
-  >;
+  icon?: LucideIcon;
   iconPosition?: "left" | "right";
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
   href?: string;
   className?: string;
