@@ -1,6 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, Heart, Clock } from "lucide-react";
+import { Calendar, Heart, Clock, type LucideIcon } from "lucide-react";
 import { Card } from "@/shared/ui/Card";
 import { Section } from "@/shared/ui/Section";
 
@@ -8,8 +7,8 @@ interface WorshipService {
   title: string;
   time: string;
   description: string;
-  icon: React.ComponentType<any>;
-  color: string;
+  icon: LucideIcon;
+  color?: string;
 }
 
 const worshipServices: WorshipService[] = [
