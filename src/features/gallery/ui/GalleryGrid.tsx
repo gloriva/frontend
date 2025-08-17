@@ -32,9 +32,9 @@ export default function GalleryGrid({
             animate="animate"
             variants={stagger}
           >
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, i) => (
               <motion.div
-                key={item.id}
+                key={i}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer overflow-hidden"
                 variants={fadeInUp}
                 onClick={() => setSelectedImage(item)}

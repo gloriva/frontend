@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
 import { VisionData } from "@/features/churchInfo/constants/VisionData";
+import { fadeInUp } from "@/shared/constants/FadeInUp";
 
 export default function ChurchVision() {
   return (
