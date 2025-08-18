@@ -34,7 +34,7 @@ const Admin = () => {
   const handleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div className="w-full min-h-screen bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50">
       <div className="flex">
         <AdminSideBar
           setActiveTab={setActiveTab}

@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Church, User, LogIn, UserCog } from "lucide-react";
+import { Church, User, LogIn, UserCog, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navItems } from "@/shared/constants/headerNavigation";
+
+const userMenuItems = [
+  { name: "로그인", href: "/login", icon: User },
+  { name: "마이페이지", href: "/mypage", icon: User },
+  { name: "관리자 페이지", href: "/admin", icon: UserCog },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,36 +18,36 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="sticky top-0 z-50 bg-white shadow-lg">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
+        <div className="flex h-16 items-center justify-between">
           {/* 로고 및 교회명 */}
           <Link
             to="/"
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            className={`flex items-center space-x-3 transition-opacity hover:opacity-80`}
           >
-            <div className="bg-blue-600 p-2 rounded-lg">
+            <div className="rounded-lg bg-blue-600 p-2">
               <Church className="h-6 w-6 text-white" />
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-900">은혜교회</h1>
-              <p className="text-xs text-gray-600 hidden sm:block">
+              <p className={`hidden text-xs text-gray-600 sm:block`}>
                 Grace Church
               </p>
             </div>
           </Link>
 
           {/* 데스크톱 네비게이션 */}
-          <nav className="hidden lg:flex space-x-8">
+          <nav className={`hidden space-x-8 lg:flex`}>
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                   isActive(item.path)
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                }`}
+                    ? "bg-blue-50 text-blue-600"
+                    : `text-gray-700 hover:bg-gray-50 hover:text-blue-600`
+                } `}
               >
                 {item.label}
               </Link>
@@ -49,65 +55,38 @@ const Header = () => {
           </nav>
 
           {/* 햄버거 메뉴 및 사용자 메뉴 */}
-          <div className="flex items-center space-x-4">
-            {/* 사용자 메뉴 (데스크톱) */}
-            <div className="hidden lg:block relative">
+          <div className={`hidden items-center space-x-4 md:flex`}>
+            <div className="relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors"
+                className={`flex items-center space-x-2 rounded-lg px-4 py-2 text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-600`}
               >
                 <User className="h-5 w-5" />
-                <span className="text-sm">메뉴</span>
+                <span>메뉴</span>
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${isUserMenuOpen ? "rotate-180" : ""} `}
+                />
               </button>
 
-              <AnimatePresence>
-                {isUserMenuOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50"
-                  >
+              {/* 드롭다운 메뉴 */}
+              {isUserMenuOpen && (
+                <div
+                  className={`absolute right-0 z-50 w-48 rounded-lg border border-gray-200 bg-white shadow-lg`}
+                >
+                  {userMenuItems.map((item) => (
                     <Link
-                      to="/login"
-                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      key={item.name}
+                      to={item.href}
                       onClick={() => setIsUserMenuOpen(false)}
+                      className={`flex items-center rounded-lg px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-blue-50 hover:text-blue-600`}
                     >
-                      <LogIn className="h-4 w-4 mr-3" />
-                      로그인
+                      <item.icon className="mr-3 h-4 w-4" />
+                      {item.name}
                     </Link>
-                    <Link
-                      to="/mypage"
-                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      onClick={() => setIsUserMenuOpen(false)}
-                    >
-                      <User className="h-4 w-4 mr-3" />
-                      마이페이지
-                    </Link>
-                    <Link
-                      to="/admin"
-                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <UserCog className="h-4 w-4 mr-3" />
-                      관리자 페이지
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 모바일 햄버거 메뉴 */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
+                  ))}
+                </div>
               )}
-            </button>
+            </div>
           </div>
         </div>
 
@@ -118,18 +97,18 @@ const Header = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden border-t border-gray-200"
+              className={`border-t border-gray-200 lg:hidden`}
             >
-              <div className="py-4 space-y-2">
+              <div className="space-y-2 py-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`block px-4 py-2 rounded-md text-base font-medium transition-colors ${
+                    className={`block rounded-md px-4 py-2 text-base font-medium transition-colors ${
                       isActive(item.path)
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                    }`}
+                        ? "bg-blue-50 text-blue-600"
+                        : `text-gray-700 hover:bg-gray-50 hover:text-blue-600`
+                    } `}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
@@ -137,21 +116,21 @@ const Header = () => {
                 ))}
 
                 {/* 모바일 사용자 메뉴 */}
-                <div className="border-t border-gray-200 pt-4 mt-4">
+                <div className="mt-4 border-t border-gray-200 pt-4">
                   <Link
                     to="/login"
-                    className="flex items-center px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+                    className={`flex items-center rounded-md px-4 py-2 text-gray-700 transition-colors hover:bg-gray-50 hover:text-blue-600`}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <LogIn className="h-5 w-5 mr-3" />
+                    <LogIn className="mr-3 h-5 w-5" />
                     로그인
                   </Link>
                   <Link
                     to="/mypage"
-                    className="flex items-center px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+                    className={`flex items-center rounded-md px-4 py-2 text-gray-700 transition-colors hover:bg-gray-50 hover:text-blue-600`}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <User className="h-5 w-5 mr-3" />
+                    <User className="mr-3 h-5 w-5" />
                     마이페이지
                   </Link>
                 </div>

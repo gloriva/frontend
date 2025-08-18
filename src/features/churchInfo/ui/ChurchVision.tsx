@@ -5,26 +5,26 @@ import { fadeInUp } from "@/shared/constants/FadeInUp";
 
 export default function ChurchVision() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-16">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className={`mb-6 text-3xl font-bold text-gray-900 lg:text-4xl`}>
             우리의 비전
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600">
             은혜교회는 하나님의 말씀을 기반으로 모든 세대가 함께 성장하며,
             지역사회와 세계를 향해 하나님의 사랑을 전하는 교회입니다.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className={`grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4`}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -33,18 +33,18 @@ export default function ChurchVision() {
           {VisionData.map((value, index) => (
             <motion.div
               key={index}
-              className="text-center p-8 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow"
+              className={`rounded-xl bg-gray-50 p-8 text-center transition-shadow hover:shadow-lg`}
               variants={fadeInUp}
             >
               <div
-                className={`${value.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6`}
+                className={` ${value.color} mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full`}
               >
                 <value.icon className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="mb-4 text-xl font-bold text-gray-900">
                 {value.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="leading-relaxed text-gray-600">
                 {value.description}
               </p>
             </motion.div>
