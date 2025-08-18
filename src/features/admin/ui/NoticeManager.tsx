@@ -12,7 +12,7 @@ import {
 } from "@/features/admin/ui/NoticeManager/index";
 import { AdminModal } from "@/features/admin/ui/common";
 import { useNoticeManagerStore } from "../store/NoticeManager";
-import { announcementsData } from "../constants/mockData";
+import { announcementsData } from "../constants/AnnouncementsData";
 
 export const NoticeManager = () => {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
