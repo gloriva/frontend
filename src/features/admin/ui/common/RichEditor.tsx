@@ -1,4 +1,4 @@
-import type { RichEditorType } from "@/entities/admin/RichEditor";
+import type { RichEditorType } from "@/entities/admin/common/RichEditor";
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";

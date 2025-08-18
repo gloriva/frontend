@@ -1,6 +1,6 @@
 import { Settings, LogOut, Home, User2 } from "lucide-react";
 import { menuItems } from "@/features/admin/constants/AdminSideBar";
-import type { AdminSideBarType } from "@/entities/admin/AdminSideBar";
+import type { AdminSideBarType } from "@/entities/admin/common/AdminSideBar";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 

@@ -1,4 +1,4 @@
-import type { HeaderType } from "@/entities/admin/Header";
+import type { HeaderType } from "@/entities/admin/common/Header";
 import { useNoticeManagerStore } from "@/features/admin/store/NoticeManager";
 import { X } from "lucide-react";
 import React from "react";
