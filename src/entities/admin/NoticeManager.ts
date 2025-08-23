@@ -30,7 +30,4 @@ export interface useNoticeManagerStoreType {
   toggleImportant: () => void;
   updateField: (type: string, content: string) => void;
   setFormData: (newFormData: formData) => void;
-  isModalOpen: boolean;
-  onClose: () => void;
-  handleModal: () => void;
 }

@@ -10,7 +10,7 @@ export const useNoticeManagerStore = create<useNoticeManagerStoreType>(
       isImportant: false,
       imageUrl: "",
     },
-    isModalOpen: false,
+
     setFormData: (newFormData) => set(() => ({ formData: newFormData })),
     toggleImportant: () =>
       set((state) => ({
@@ -24,7 +24,5 @@ export const useNoticeManagerStore = create<useNoticeManagerStoreType>(
       set((state) => ({
         formData: { ...state.formData, [type]: content },
       })),
-    onClose: () => set({ isModalOpen: false }),
-    handleModal: () => set((state) => ({ isModalOpen: !state.isModalOpen })),
   }),
 );

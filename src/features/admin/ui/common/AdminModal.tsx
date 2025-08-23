@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CancelButton, ContentSection, Header } from "./AdminModal/index";
-import { useNoticeManagerStore } from "../../store/NoticeManager";
+import { useCommonStore } from "@/features/admin/store/common";
 
 interface ModalProps {
   isOpen: boolean;
@@ -21,7 +21,7 @@ export default function AdminModal({
     lg: "max-w-2xl",
     xl: "max-w-4xl",
   };
-  const onClose = useNoticeManagerStore((state) => state.onClose);
+  const onClose = useCommonStore((state) => state.onClose);
   return (
     <AnimatePresence>
       {isOpen && (
