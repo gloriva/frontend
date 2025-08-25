@@ -5,7 +5,9 @@ import toast from "react-hot-toast";
 import type { ChurchNews } from "@/entities/admin/NewsManager";
 import { useNewsManager } from "@/features/admin/store/NewsManager";
 import {
+  NewsCancelButton,
   NewsCategory,
+  NewsContent,
   NewsImgUrl,
   NewsList,
   NewsState,
@@ -148,6 +150,8 @@ export const NewsManager = () => {
           </div>
           <NewsSummary />
           <NewsTags />
+          <NewsContent />
+          <NewsCancelButton editingNews={editingNews} />
         </form>
       </AdminModal>
     </div>

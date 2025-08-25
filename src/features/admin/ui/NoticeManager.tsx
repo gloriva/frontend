@@ -4,15 +4,18 @@ import { Button } from "@/shared/ui/Button";
 import toast from "react-hot-toast";
 import type { Announcement } from "@/entities/admin/NoticeManager";
 import {
+  NoticeCancelButton,
   NoticeCategory,
   NoticeCheck,
+  NoticeContent,
   NoticeImgUrl,
   NoticeList,
   NoticeTitle,
 } from "@/features/admin/ui/NoticeManager/index";
 import { AdminModal } from "@/features/admin/ui/common";
-import { useNoticeManagerStore } from "../store/NoticeManager";
-import { announcementsData } from "../constants/AnnouncementsData";
+import { useNoticeManagerStore } from "@/features/admin/store/NoticeManager";
+import { announcementsData } from "@/features/admin/constants/AnnouncementsData";
+import { useCommonStore } from "@/features/admin/store/common";
 
 export const NoticeManager = () => {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
@@ -21,9 +24,9 @@ export const NoticeManager = () => {
     useState<Announcement | null>(null);
 
   const useFormData = useNoticeManagerStore((state) => state.setFormData);
-  const modalOpen = useNoticeManagerStore((state) => state.isModalOpen);
-  const handleModal = useNoticeManagerStore((state) => state.handleModal);
-  const onClose = useNoticeManagerStore((state) => state.onClose);
+  const modalOpen = useCommonStore((state) => state.isModalOpen);
+  const handleModal = useCommonStore((state) => state.handleModal);
+  const onClose = useCommonStore((state) => state.onClose);
 
   const fetchAnnouncements = async () => {
     try {
@@ -45,7 +48,6 @@ export const NoticeManager = () => {
 
   const handleCreate = () => {
     setEditingAnnouncement(null);
-
     useFormData({
       title: "",
       content: "",
@@ -58,7 +60,6 @@ export const NoticeManager = () => {
 
   const handleEdit = (announcement: Announcement) => {
     setEditingAnnouncement(announcement);
-
     useFormData({
       title: announcement.title,
       content: announcement.content,
@@ -71,16 +72,7 @@ export const NoticeManager = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     try {
-      // const announcementData = {
-      //   ...formData,
-      //   author: "관리자",
-      //   views: editingAnnouncement?.views || 0,
-      //   ...(editingAnnouncement ? {} : { createdAt: new Date().toISOString() }),
-      //   updatedAt: new Date().toISOString(),
-      // };
-
       if (editingAnnouncement) {
         // await lumi.entities.announcements.update(
         //   editingAnnouncement._id,
@@ -102,7 +94,6 @@ export const NoticeManager = () => {
 
   const handleDelete = async (_id: string) => {
     if (!confirm("정말 삭제하시겠습니까?")) return;
-
     try {
       // await lumi.entities.announcements.delete(id);
       toast.success("공지사항이 삭제되었습니다");
@@ -153,6 +144,8 @@ export const NoticeManager = () => {
           </div>
           <NoticeImgUrl />
           <NoticeCheck />
+          <NoticeContent />
+          <NoticeCancelButton editingAnnouncement={editingAnnouncement} />
         </AdminModal>
       </form>
     </div>

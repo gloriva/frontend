@@ -5,3 +5,5 @@ export { default as NewsState } from "./NewsState";
 export { default as NewsImgUrl } from "./NewsImgUrl";
 export { default as NewsSummary } from "./NewsSummary";
 export { default as NewsTags } from "./NewsTags";
+export { default as NewsContent } from "./NewsContent";
+export { default as NewsCancelButton } from "./NewsCancelButton";

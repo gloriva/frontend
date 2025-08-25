@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CancelButton, ContentSection, Header } from "./AdminModal/index";
+import { Header } from "./AdminModal/index";
 import { useCommonStore } from "@/features/admin/store/common";
 
 interface ModalProps {
@@ -48,12 +48,7 @@ export default function AdminModal({
               <Header title={title} />
 
               {/* 컨텐츠 */}
-              <div className="space-y-3 p-6">
-                {children}
-                <ContentSection />
-
-                <CancelButton />
-              </div>
+              <div className="space-y-5 p-6">{children}</div>
             </motion.div>
           </div>
         </div>
