@@ -14,11 +14,9 @@ import {
 } from "@/features/admin/ui/NoticeManager/index";
 import { AdminModal } from "@/features/admin/ui/common";
 import { useNoticeManagerStore } from "@/features/admin/store/NoticeManager";
-import { announcementsData } from "@/features/admin/constants/AnnouncementsData";
 import { useCommonStore } from "@/features/admin/store/common";
 
 export const NoticeManager = () => {
-  const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [editingAnnouncement, setEditingAnnouncement] =
     useState<Announcement | null>(null);
@@ -32,7 +30,7 @@ export const NoticeManager = () => {
     try {
       setLoading(true);
       // const { list } = await lumi.entities.announcements.list();
-      setAnnouncements(announcementsData || []);
+      // setAnnouncements(announcementsData || []);
       // setAnnouncements([]);
     } catch (error) {
       console.error("Failed to fetch announcements:", error);
@@ -58,18 +56,6 @@ export const NoticeManager = () => {
     handleModal();
   };
 
-  const handleEdit = (announcement: Announcement) => {
-    setEditingAnnouncement(announcement);
-    useFormData({
-      title: announcement.title,
-      content: announcement.content,
-      category: announcement.category,
-      isImportant: announcement.isImportant,
-      imageUrl: announcement.imageUrl || "",
-    });
-    handleModal();
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -89,18 +75,6 @@ export const NoticeManager = () => {
     } catch (error) {
       console.error("Failed to save announcement:", error);
       toast.error("공지사항 저장에 실패했습니다");
-    }
-  };
-
-  const handleDelete = async (_id: string) => {
-    if (!confirm("정말 삭제하시겠습니까?")) return;
-    try {
-      // await lumi.entities.announcements.delete(id);
-      toast.success("공지사항이 삭제되었습니다");
-      fetchAnnouncements();
-    } catch (error) {
-      console.error("Failed to delete announcement:", error);
-      toast.error("공지사항 삭제에 실패했습니다");
     }
   };
 
@@ -130,11 +104,7 @@ export const NoticeManager = () => {
         </div>
       </div>
 
-      <NoticeList
-        announcements={announcements}
-        handleDelete={handleDelete}
-        handleEdit={handleEdit}
-      />
+      <NoticeList />
       {/* 공지사항 작성/수정 모달 */}
       <form onSubmit={handleSubmit}>
         <AdminModal isOpen={modalOpen} title={"공지사항 수정"} size="xl">

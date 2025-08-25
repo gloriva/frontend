@@ -45,7 +45,6 @@ export const NewsManager = () => {
   }, []);
 
   const handleCreate = () => {
-    setEditingNews(null);
     setForm({
       title: "",
       content: "",
@@ -54,20 +53,6 @@ export const NewsManager = () => {
       status: "draft",
       imageUrl: "",
       tags: [],
-      tagInput: "",
-    });
-    setIsOpen();
-  };
-
-  const handleEdit = (newsItem: ChurchNews) => {
-    setForm({
-      title: newsItem.title,
-      content: newsItem.content,
-      summary: newsItem.summary || "",
-      category: newsItem.category,
-      status: newsItem.status,
-      imageUrl: newsItem.imageUrl || "",
-      tags: newsItem.tags || [],
       tagInput: "",
     });
     setIsOpen();
@@ -91,19 +76,6 @@ export const NewsManager = () => {
     } catch (error) {
       console.error("Failed to save news:", error);
       toast.error("교회 소식 저장에 실패했습니다");
-    }
-  };
-
-  const handleDelete = async (_id: number) => {
-    if (!confirm("정말 삭제하시겠습니까?")) return;
-
-    try {
-      // await lumi.entities.church_news.delete(id);
-      toast.success("교회 소식이 삭제되었습니다");
-      fetchNews();
-    } catch (error) {
-      console.error("Failed to delete news:", error);
-      toast.error("교회 소식 삭제에 실패했습니다");
     }
   };
 
@@ -135,7 +107,7 @@ export const NewsManager = () => {
 
       {/* 리스트 */}
       {/* zustand news 변수에 mockData가 대입되어 있음 */}
-      <NewsList handleDelete={handleDelete} handleEdit={handleEdit} />
+      <NewsList />
 
       {/* 교회 소식 작성/수정 모달 */}
       <AdminModal size="xl" isOpen={isOpen} title={"새 교회 소식 작성"}>

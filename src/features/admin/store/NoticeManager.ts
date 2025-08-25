@@ -1,8 +1,10 @@
 import type { useNoticeManagerStoreType } from "@/entities/admin/NoticeManager";
 import { create } from "zustand";
+import { announcementsData } from "../constants/AnnouncementsData";
 
 export const useNoticeManagerStore = create<useNoticeManagerStoreType>(
   (set) => ({
+    announcements: announcementsData,
     formData: {
       title: "",
       content: "",

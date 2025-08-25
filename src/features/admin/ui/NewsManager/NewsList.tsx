@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import { Newspaper, User, Calendar, Tag, Edit, Trash2 } from "lucide-react";
-import {
+import useNewsHook, {
   getStatusColor,
   getStatusText,
   getCategoryLabel,
 } from "@/features/admin/utils/NewsManager";
 import { useNewsManager } from "@/features/admin/store/NewsManager";
-import type { NewsListType } from "@/entities/admin/NewsManager";
 
-export default function NewsList({ handleDelete, handleEdit }: NewsListType) {
+export default function NewsList() {
   const news = useNewsManager((state) => state.news);
+  const { handleDelete, handleEdit } = useNewsHook();
   return (
     <div className="p-6">
       {news.length === 0 ? (

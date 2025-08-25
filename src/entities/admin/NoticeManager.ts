@@ -12,7 +12,6 @@ export interface Announcement {
 }
 
 export interface NoticeListType {
-  announcements: Announcement[];
   handleEdit: (announcement: Announcement) => void;
   handleDelete: (_id: string) => Promise<void>;
 }
@@ -26,6 +25,7 @@ interface formData {
 }
 
 export interface useNoticeManagerStoreType {
+  announcements: Announcement[];
   formData: formData;
   toggleImportant: () => void;
   updateField: (type: string, content: string) => void;

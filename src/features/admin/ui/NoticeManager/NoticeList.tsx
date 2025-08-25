@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { Bell, Calendar, Edit, Eye, Star, Trash2, User } from "lucide-react";
-import { getCategoryColor } from "@/features/admin/utils/NoticeManager";
-import type { NoticeListType } from "@/entities/admin/NoticeManager";
+import {
+  getCategoryColor,
+  useNoticeHandlers,
+} from "@/features/admin/utils/NoticeManager";
+import { useNoticeManagerStore } from "../../store/NoticeManager";
 
-export default function NoticeList({
-  announcements,
-  handleDelete,
-  handleEdit,
-}: NoticeListType) {
+export default function NoticeList() {
+  const announcements = useNoticeManagerStore((state) => state.announcements);
+  const { handleDelete, handleEdit } = useNoticeHandlers();
   return (
     <div className="p-6">
       {announcements.length === 0 ? (
