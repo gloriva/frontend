@@ -20,8 +20,15 @@ export const Card: React.FC<CardProps> = ({
   };
 
   const classes = `
-    bg-white rounded-xl shadow-md 
-    ${hover ? "hover:shadow-lg transition-shadow cursor-pointer" : ""}
+    rounded-xl bg-white shadow-md
+    ${
+      hover
+        ? `
+          cursor-pointer transition-shadow
+          hover:shadow-lg
+        `
+        : ""
+    }
     ${paddingClasses[padding]}
     ${className}
   `;

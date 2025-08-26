@@ -4,7 +4,7 @@ import express from "express";
 import { createServer as createViteServer } from "vite";
 
 const isProduction = process.env.NODE_ENV === "production";
-const Port = process.env.PORT || 3000;
+const Port = process.env.PORT || 3001;
 const Base = process.env.BASE || "/";
 
 const templateHtml = isProduction

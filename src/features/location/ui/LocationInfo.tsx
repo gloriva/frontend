@@ -18,34 +18,34 @@ export default function LocationInfo() {
   };
 
   return (
-    <section className="py-16 bg-blue-600 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-blue-600 py-16 text-white">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
         <motion.div
-          className="text-center mb-12"
+          className="mb-12 text-center"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+          <h2 className={`mb-4 text-3xl font-bold lg:text-4xl`}>
             교회에 오시는 길
           </h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-xl text-blue-100">
             언제든지 편안하게 방문해주세요
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className={`grid grid-cols-1 items-center gap-12 lg:grid-cols-2`}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={stagger}
         >
           <motion.div variants={fadeInUp}>
-            <div className="bg-white/10 rounded-xl p-8">
-              <div className="flex items-center mb-6">
-                <MapPin className="h-8 w-8 text-yellow-300 mr-3" />
+            <div className="rounded-xl bg-white/10 p-8">
+              <div className="mb-6 flex items-center">
+                <MapPin className="mr-3 h-8 w-8 text-yellow-300" />
                 <h3 className="text-2xl font-bold">교회 위치</h3>
               </div>
               <div className="space-y-4 text-blue-100">
@@ -72,15 +72,15 @@ export default function LocationInfo() {
           <motion.div variants={fadeInUp}>
             <Link
               to="/location"
-              className="block bg-white/10 rounded-xl p-8 hover:bg-white/20 transition-colors"
+              className={`block rounded-xl bg-white/10 p-8 transition-colors hover:bg-white/20`}
             >
               <div className="text-center">
-                <MapPin className="h-16 w-16 text-yellow-300 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">상세한 길 안내</h3>
-                <p className="text-blue-100 mb-4">
+                <MapPin className="mx-auto mb-4 h-16 w-16 text-yellow-300" />
+                <h3 className="mb-2 text-xl font-bold">상세한 길 안내</h3>
+                <p className="mb-4 text-blue-100">
                   지도와 함께 자세한 교통편을 확인하세요
                 </p>
-                <span className="inline-flex items-center text-yellow-300 font-semibold">
+                <span className="inline-flex items-center font-semibold text-yellow-300">
                   길 안내 보기
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </span>

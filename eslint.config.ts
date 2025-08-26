@@ -31,9 +31,9 @@ export default tseslint.config([
         { allowConstantExport: true },
       ],
       "react-hooks/exhaustive-deps": "off",
-      "prettier/prettier": "error",
+      "prettier/prettier": "warn",
       "@typescript-eslint/no-unused-vars": [
-        "warn",
+        "off",
         {
           argsIgnorePattern: "^_", // 파라미터명에 _ 붙이면 무시
           varsIgnorePattern: "^_", // 변수명에 _ 붙이면 무시
