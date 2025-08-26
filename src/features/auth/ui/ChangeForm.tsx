@@ -11,7 +11,7 @@ export default function ChangeForm({
     <div className="text-center">
       <button
         onClick={() => handleAuthState()}
-        className="text-sm text-blue-600 hover:text-blue-500"
+        className={`text-sm text-blue-600 hover:text-blue-500`}
       >
         {isSignup
           ? "이미 계정이 있으신가요? 로그인"

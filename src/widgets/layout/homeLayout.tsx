@@ -8,7 +8,7 @@ interface HomeLayoutProps {
 
 export default function HomeLayout({ children }: HomeLayoutProps) {
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col">
+    <div className="flex min-h-screen w-full flex-col bg-white">
       <Header />
       {/* 메인 콘텐츠 */}
       <main className="flex-1 space-y-6">{children}</main>

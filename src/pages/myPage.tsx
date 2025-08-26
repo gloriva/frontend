@@ -36,9 +36,7 @@ const MyPage = () => {
     setEditForm(userInfo);
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent) => {
     setEditForm({
       ...editForm,
       [e.target.name]: e.target.value,
@@ -46,16 +44,18 @@ const MyPage = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50">
       {/* 헤더 섹션 */}
-      <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 py-20 text-white">
+        <div className={`relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
           <motion.div initial="initial" animate="animate" variants={stagger}>
             <motion.div className="text-center" variants={fadeInUp}>
-              <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+              <div
+                className={`mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-white`}
+              >
                 <User className="h-12 w-12 text-blue-600" />
               </div>
-              <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+              <h1 className={`mb-4 text-4xl font-bold lg:text-5xl`}>
                 마이페이지
               </h1>
               <p className="text-xl text-blue-100">
@@ -68,8 +68,8 @@ const MyPage = () => {
 
       {/* 메인 콘텐츠 */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
+          <div className={`grid grid-cols-1 gap-8 lg:grid-cols-3`}>
             <UserInfo
               isEditing={isEditing}
               handleCancel={handleCancel}

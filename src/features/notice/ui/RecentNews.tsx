@@ -11,21 +11,21 @@ function RecentNews() {
   return (
     <Section background="white">
       <motion.div
-        className="flex justify-between items-center mb-12"
+        className="mb-12 flex items-center justify-between"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
         variants={fadeInUp}
       >
         <div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className={`mb-4 text-3xl font-bold text-gray-900 lg:text-4xl`}>
             최근 소식
           </h2>
           <p className="text-lg text-gray-600">교회의 최신 소식을 확인하세요</p>
         </div>
         <Link
           to="/home/announcements"
-          className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center"
+          className={`inline-flex items-center font-semibold text-blue-600 hover:text-blue-700`}
         >
           전체 보기
           <ChevronRight className="ml-1 h-5 w-5" />
@@ -33,7 +33,7 @@ function RecentNews() {
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className={`grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3`}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
@@ -42,17 +42,17 @@ function RecentNews() {
         {recentNotices.map((notice, index) => (
           <motion.div key={index} variants={fadeInUp}>
             <Card hover>
-              <div className="flex items-center justify-between mb-3">
-                <span className="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full">
+              <div className="mb-3 flex items-center justify-between">
+                <span className="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-600">
                   {notice.category}
                 </span>
                 {notice.important && (
-                  <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full">
+                  <span className="rounded-full bg-red-100 px-2 py-1 text-xs text-red-600">
                     중요
                   </span>
                 )}
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">
+              <h3 className="mb-2 line-clamp-2 font-semibold text-gray-900">
                 {notice.title}
               </h3>
               <p className="text-sm text-gray-500">{notice.date}</p>

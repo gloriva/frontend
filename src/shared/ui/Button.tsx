@@ -41,7 +41,13 @@ export const Button: React.FC<ButtonProps> = ({
     lg: "px-8 py-4 text-lg",
   };
 
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`;
+  const classes = `
+    ${baseClasses}
+    ${variantClasses[variant]}
+    ${sizeClasses[size]}
+    ${className}
+    ${disabled ? "cursor-not-allowed opacity-50" : ""}
+  `;
 
   const content = (
     <>

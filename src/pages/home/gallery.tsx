@@ -67,18 +67,22 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 헤더 섹션 */}
-      <section className="relative bg-gradient-to-br from-indigo-600 to-indigo-800 text-white py-20">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1684187/pexels-photo-1684187.jpeg')] bg-cover bg-center opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative bg-gradient-to-br from-indigo-600 to-indigo-800 py-20 text-white">
+        <div
+          className={`absolute inset-0 bg-[url('https://images.pexels.com/photos/1684187/pexels-photo-1684187.jpeg')] bg-cover bg-center opacity-20`}
+        ></div>
+        <div
+          className={`relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8`}
+        >
           <motion.div initial="initial" animate="animate" variants={stagger}>
             <motion.h1
-              className="text-4xl lg:text-5xl font-bold mb-6"
+              className={`mb-6 text-4xl font-bold lg:text-5xl`}
               variants={fadeInUp}
             >
               갤러리
             </motion.h1>
             <motion.p
-              className="text-xl text-indigo-100 max-w-3xl mx-auto"
+              className="mx-auto max-w-3xl text-xl text-indigo-100"
               variants={fadeInUp}
             >
               교회의 소중한 순간들을 사진으로 만나보세요

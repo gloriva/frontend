@@ -1,0 +1,55 @@
+import type { Bulletin } from "@/entities/admin/BulletinManager";
+
+export const bulletinsData: Bulletin[] = [
+  {
+    id: 1,
+    title: "창립 기념 주일",
+    date: "2025-08-17",
+    content: "교회 창립 기념 주일 예배를 드립니다. 함께해 주시기 바랍니다.",
+    status: "published",
+    author: "홍길동",
+    createdAt: "2025-07-30T10:30:00Z",
+    updatedAt: "2025-08-01T12:45:00Z",
+  },
+  {
+    id: 2,
+    title: "여름 성경학교 안내",
+    date: "2025-08-19",
+    content: "주일학교 여름 성경학교가 시작됩니다. 많은 참여 바랍니다.",
+    status: "draft",
+    author: "이영희",
+    createdAt: "2025-07-20T09:00:00Z",
+    updatedAt: "2025-08-02T14:22:00Z",
+  },
+  {
+    id: 3,
+    title: "지역 봉사 활동 보고",
+    date: "2025-08-20",
+    content: "지속적인 지역 봉사 활동에 감사드립니다. 다음 주 일정 안내입니다.",
+    status: "published",
+    author: "김철수",
+    createdAt: "2025-06-15T11:15:00Z",
+    updatedAt: "2025-07-25T16:30:00Z",
+  },
+  {
+    id: 4,
+    title: "추수감사절 준비 모임",
+    date: "2025-08-28",
+    content:
+      "추수감사절 준비 모임이 예정되어 있습니다. 많은 참석 부탁드립니다.",
+    status: "draft",
+    author: "박민수",
+    createdAt: "2025-07-29T10:00:00Z",
+    updatedAt: "2025-08-03T09:45:00Z",
+  },
+  {
+    id: 5,
+    title: "선교 보고",
+    date: "2025-08-29",
+    content: "최근 선교 활동 보고 및 감사의 말씀 전합니다.",
+    status: "archived",
+    author: "최지희",
+    createdAt: "2025-05-10T08:50:00Z",
+    updatedAt: "2025-06-13T11:05:00Z",
+  },
+];

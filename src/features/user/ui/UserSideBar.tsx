@@ -14,15 +14,15 @@ export default function UserSideBar() {
     >
       {/* 통계 */}
       <motion.div
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="rounded-xl bg-white p-6 shadow-lg"
         variants={fadeInUp}
       >
-        <h3 className="text-lg font-bold text-gray-900 mb-6">나의 활동</h3>
+        <h3 className="mb-6 text-lg font-bold text-gray-900">나의 활동</h3>
         <div className="grid grid-cols-2 gap-4">
           {sideBarData.map((stat, index) => (
             <div key={index} className="text-center">
               <div
-                className={`${stat.color} w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-2`}
+                className={` ${stat.color} mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full`}
               >
                 <stat.icon className="h-6 w-6 text-white" />
               </div>
@@ -37,10 +37,10 @@ export default function UserSideBar() {
 
       {/* 설정 메뉴 */}
       <motion.div
-        className="bg-white rounded-xl shadow-lg p-6"
+        className="rounded-xl bg-white p-6 shadow-lg"
         variants={fadeInUp}
       >
-        <h3 className="text-lg font-bold text-gray-900 mb-6">설정</h3>
+        <h3 className="mb-6 text-lg font-bold text-gray-900">설정</h3>
         <div className="space-y-3">
           {[
             { icon: Bell, label: "알림 설정", color: "text-blue-600" },
@@ -57,7 +57,7 @@ export default function UserSideBar() {
           ].map((item, index) => (
             <button
               key={index}
-              className="w-full flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors text-left"
+              className={`flex w-full items-center rounded-lg p-3 text-left transition-colors hover:bg-gray-50`}
             >
               <item.icon className={`h-5 w-5 ${item.color} mr-3`} />
               <span className="text-gray-900">{item.label}</span>

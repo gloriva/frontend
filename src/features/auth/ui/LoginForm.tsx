@@ -29,7 +29,7 @@ export const LoginForm = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
           placeholder="이메일을 입력하세요"
           required
         />
@@ -47,7 +47,7 @@ export const LoginForm = () => {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
           placeholder="비밀번호를 입력하세요"
           required
         />
@@ -57,11 +57,11 @@ export const LoginForm = () => {
         <label className="flex items-center">
           <input
             type="checkbox"
-            className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            className={`focus:ring-opacity-50 rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200`}
           />
           <span className="ml-2 text-sm text-gray-600">로그인 상태 유지</span>
         </label>
-        <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
+        <a href="#" className={`text-sm text-blue-600 hover:text-blue-500`}>
           비밀번호 찾기
         </a>
       </div>
@@ -69,7 +69,7 @@ export const LoginForm = () => {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className={`w-full rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50`}
       >
         {isLoading ? "로그인 중..." : "로그인"}
       </button>

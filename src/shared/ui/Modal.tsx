@@ -33,7 +33,7 @@ export const Modal: React.FC<ModalProps> = ({
           <div className="flex min-h-screen items-center justify-center p-4">
             {/* 배경 오버레이 */}
             <motion.div
-              className="fixed inset-0 bg-black bg-opacity-50"
+              className="bg-opacity-50 fixed inset-0 bg-black"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -42,19 +42,19 @@ export const Modal: React.FC<ModalProps> = ({
 
             {/* 모달 컨텐츠 */}
             <motion.div
-              className={`relative w-full ${sizeClasses[size]} bg-white rounded-xl shadow-xl`}
+              className={`relative w-full ${sizeClasses[size]} rounded-xl bg-white shadow-xl`}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.2 }}
             >
               {/* 헤더 */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <div className="flex items-center justify-between border-b border-gray-200 p-6">
                 <h2 className="text-xl font-bold text-gray-900">{title}</h2>
                 {showCloseButton && (
                   <button
                     onClick={onClose}
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                    className={`text-gray-400 transition-colors hover:text-gray-600`}
                   >
                     <X className="h-6 w-6" />
                   </button>

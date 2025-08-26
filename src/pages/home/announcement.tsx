@@ -81,9 +81,11 @@ const Announcements = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div
+            className={`mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600`}
+          ></div>
           <p className="text-gray-600">공지사항을 불러오는 중...</p>
         </div>
       </div>
@@ -93,18 +95,22 @@ const Announcements = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 헤더 섹션 */}
-      <section className="relative bg-gradient-to-br from-purple-600 to-purple-800 text-white py-20">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/8468/candles-church-light-lighting.jpg')] bg-cover bg-center opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative bg-gradient-to-br from-purple-600 to-purple-800 py-20 text-white">
+        <div
+          className={`absolute inset-0 bg-[url('https://images.pexels.com/photos/8468/candles-church-light-lighting.jpg')] bg-cover bg-center opacity-20`}
+        ></div>
+        <div
+          className={`relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8`}
+        >
           <motion.div initial="initial" animate="animate" variants={stagger}>
             <motion.h1
-              className="text-4xl lg:text-5xl font-bold mb-6"
+              className={`mb-6 text-4xl font-bold lg:text-5xl`}
               variants={fadeInUp}
             >
               공지사항
             </motion.h1>
             <motion.p
-              className="text-xl text-purple-100 max-w-3xl mx-auto"
+              className="mx-auto max-w-3xl text-xl text-purple-100"
               variants={fadeInUp}
             >
               교회의 최신 소식과 중요한 안내사항을 확인하세요

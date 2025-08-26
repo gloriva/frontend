@@ -9,8 +9,8 @@ export default function GalleryFilter({
   selectedCategory,
 }: GalleryFilterType) {
   return (
-    <section className="py-8 bg-white border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="border-b bg-white py-8">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
         <motion.div
           className="flex items-center justify-center space-x-2"
           initial="initial"
@@ -23,11 +23,11 @@ export default function GalleryFilter({
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                   selectedCategory === category
                     ? "bg-indigo-600 text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
+                    : `bg-gray-100 text-gray-600 hover:bg-gray-200`
+                } `}
               >
                 {category}
               </button>

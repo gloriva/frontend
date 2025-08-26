@@ -5,16 +5,16 @@ import { Clock, MapPin, Phone } from "lucide-react";
 
 export default function ChurchContact() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-16">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className={`mb-6 text-3xl font-bold text-gray-900 lg:text-4xl`}>
             교회 위치
           </h2>
           <p className="text-lg text-gray-600">
@@ -23,7 +23,7 @@ export default function ChurchContact() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className={`grid grid-cols-1 items-center gap-12 lg:grid-cols-2`}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -31,9 +31,9 @@ export default function ChurchContact() {
         >
           {/* 주소 및 연락처 정보 */}
           <motion.div className="space-y-8" variants={fadeInUp}>
-            <div className="bg-emerald-50 rounded-xl p-8">
-              <div className="flex items-center mb-6">
-                <MapPin className="h-8 w-8 text-emerald-600 mr-3" />
+            <div className="rounded-xl bg-emerald-50 p-8">
+              <div className="mb-6 flex items-center">
+                <MapPin className="mr-3 h-8 w-8 text-emerald-600" />
                 <h3 className="text-2xl font-bold text-gray-900">교회 주소</h3>
               </div>
               <div className="space-y-4 text-gray-700">
@@ -46,15 +46,15 @@ export default function ChurchContact() {
                   06234
                 </p>
                 <div className="flex items-center pt-4">
-                  <Phone className="h-5 w-5 text-emerald-600 mr-3" />
+                  <Phone className="mr-3 h-5 w-5 text-emerald-600" />
                   <span className="text-lg font-semibold">02-1234-5678</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-blue-50 rounded-xl p-8">
-              <div className="flex items-center mb-6">
-                <Clock className="h-8 w-8 text-blue-600 mr-3" />
+            <div className="rounded-xl bg-blue-50 p-8">
+              <div className="mb-6 flex items-center">
+                <Clock className="mr-3 h-8 w-8 text-blue-600" />
                 <h3 className="text-2xl font-bold text-gray-900">예배 시간</h3>
               </div>
               <div className="space-y-3 text-gray-700">
@@ -80,13 +80,13 @@ export default function ChurchContact() {
 
           {/* 지도 영역 */}
           <motion.div
-            className="bg-gray-200 rounded-xl h-96 flex items-center justify-center"
+            className="flex h-96 items-center justify-center rounded-xl bg-gray-200"
             variants={fadeInUp}
           >
             <div className="text-center text-gray-600">
-              <MapPin className="h-16 w-16 mx-auto mb-4" />
+              <MapPin className="mx-auto mb-4 h-16 w-16" />
               <p className="text-lg">지도가 여기에 표시됩니다</p>
-              <p className="text-sm mt-2">
+              <p className="mt-2 text-sm">
                 실제 구현 시 Google Maps 또는 네이버 지도 API 연동
               </p>
             </div>

@@ -37,7 +37,7 @@ export const SignupForm = () => {
       <div>
         <label
           htmlFor="name"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="mb-1 block text-sm font-medium text-gray-700"
         >
           이름
         </label>
@@ -47,7 +47,7 @@ export const SignupForm = () => {
           type="text"
           value={formData.name}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
           placeholder="이름을 입력하세요"
           required
         />
@@ -56,7 +56,7 @@ export const SignupForm = () => {
       <div>
         <label
           htmlFor="signup-email"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="mb-1 block text-sm font-medium text-gray-700"
         >
           이메일
         </label>
@@ -66,7 +66,7 @@ export const SignupForm = () => {
           type="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
           placeholder="이메일을 입력하세요"
           required
         />
@@ -75,7 +75,7 @@ export const SignupForm = () => {
       <div>
         <label
           htmlFor="signup-password"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="mb-1 block text-sm font-medium text-gray-700"
         >
           비밀번호
         </label>
@@ -85,7 +85,7 @@ export const SignupForm = () => {
           type="password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
           placeholder="비밀번호를 입력하세요"
           required
         />
@@ -94,7 +94,7 @@ export const SignupForm = () => {
       <div>
         <label
           htmlFor="confirm-password"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="mb-1 block text-sm font-medium text-gray-700"
         >
           비밀번호 확인
         </label>
@@ -104,7 +104,7 @@ export const SignupForm = () => {
           type="password"
           value={formData.confirmPassword}
           onChange={handleChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none`}
           placeholder="비밀번호를 다시 입력하세요"
           required
         />
@@ -113,7 +113,7 @@ export const SignupForm = () => {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className={`w-full rounded-lg bg-green-600 px-4 py-2 text-white transition-colors hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50`}
       >
         {isLoading ? "가입 중..." : "회원가입"}
       </button>

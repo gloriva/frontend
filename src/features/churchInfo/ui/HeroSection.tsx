@@ -19,11 +19,17 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white overflow-hidden">
-      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-      <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/161060/architecture-building-church-161060.jpeg')] bg-cover bg-center opacity-20"></div>
+    <section
+      className={`relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white`}
+    >
+      <div className="bg-opacity-20 absolute inset-0 bg-black"></div>
+      <div
+        className={`absolute inset-0 bg-[url('https://images.pexels.com/photos/161060/architecture-building-church-161060.jpeg')] bg-cover bg-center opacity-20`}
+      ></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div
+        className={`relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32`}
+      >
         <motion.div
           className="text-center"
           initial="initial"
@@ -31,7 +37,7 @@ export default function HeroSection() {
           variants={stagger}
         >
           <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
+            className={`mb-6 text-4xl font-bold sm:text-5xl lg:text-6xl`}
             variants={fadeInUp}
           >
             하나님의 은혜가
@@ -39,14 +45,14 @@ export default function HeroSection() {
             <span className="text-yellow-300">충만한 교회</span>
           </motion.h1>
           <motion.p
-            className="text-xl sm:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto"
+            className={`mx-auto mb-8 max-w-3xl text-xl text-blue-100 sm:text-2xl`}
             variants={fadeInUp}
           >
             모든 분들을 따뜻하게 환영하며, 함께 하나님의 사랑을 나누는
             공동체입니다
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className={`flex flex-col justify-center gap-4 sm:flex-row`}
             variants={fadeInUp}
           >
             <Link to="/home/about">

@@ -14,24 +14,26 @@ export default function NoticeFilter({
   selectedCategory,
 }: NoticeFilterType) {
   return (
-    <section className="py-8 bg-white border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="border-b bg-white py-8">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
         <motion.div
-          className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0"
+          className={`flex flex-col space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0`}
           initial="initial"
           animate="animate"
           variants={fadeInUp}
         >
           {/* 검색 */}
-          <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <div className="relative max-w-md flex-1">
+            <Search
+              className={`absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 transform text-gray-400`}
+            />
             <input
               type="text"
               placeholder="공지사항 검색..."
               value={searchTerm}
               id="search"
               onChange={(e) => inputData(e.target.id, e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className={`w-full rounded-lg border border-gray-300 py-2 pr-4 pl-10 focus:border-transparent focus:ring-2 focus:ring-purple-500`}
             />
           </div>
 
@@ -44,11 +46,11 @@ export default function NoticeFilter({
                   key={category}
                   id="category"
                   onClick={(e) => inputData(e.currentTarget.id, category)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                     selectedCategory === category
                       ? "bg-purple-600 text-white"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
+                      : `bg-gray-100 text-gray-600 hover:bg-gray-200`
+                  } `}
                 >
                   {category}
                 </button>

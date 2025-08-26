@@ -4,23 +4,23 @@ import { Car, Navigation } from "lucide-react";
 
 export default function ParkingGuide() {
   return (
-    <section className="py-16 bg-emerald-600 text-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="bg-emerald-600 py-16 text-white">
+      <div className={`mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8`}>
         <motion.div
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">주차 안내</h2>
-          <p className="text-xl text-emerald-100 mb-8">
+          <h2 className={`mb-6 text-3xl font-bold lg:text-4xl`}>주차 안내</h2>
+          <p className="mb-8 text-xl text-emerald-100">
             편리한 주차 시설을 제공합니다
           </p>
-          <div className="bg-white/10 rounded-xl p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+          <div className="rounded-xl bg-white/10 p-8">
+            <div className={`grid grid-cols-1 gap-8 text-left md:grid-cols-2`}>
               <div>
-                <h3 className="font-bold text-lg mb-4 flex items-center">
-                  <Car className="h-6 w-6 mr-3" />
+                <h3 className="mb-4 flex items-center text-lg font-bold">
+                  <Car className="mr-3 h-6 w-6" />
                   교회 주차장
                 </h3>
                 <ul className="space-y-2 text-emerald-100">
@@ -31,8 +31,8 @@ export default function ParkingGuide() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-bold text-lg mb-4 flex items-center">
-                  <Navigation className="h-6 w-6 mr-3" />
+                <h3 className="mb-4 flex items-center text-lg font-bold">
+                  <Navigation className="mr-3 h-6 w-6" />
                   인근 주차장
                 </h3>
                 <ul className="space-y-2 text-emerald-100">
@@ -44,7 +44,7 @@ export default function ParkingGuide() {
               </div>
             </div>
           </div>
-          <p className="text-emerald-100 mt-6">
+          <p className="mt-6 text-emerald-100">
             주차 관련 문의: 02-1234-5678 (총무부)
           </p>
         </motion.div>

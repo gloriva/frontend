@@ -52,22 +52,22 @@ function WorshipSchedule() {
   return (
     <Section background="white">
       <motion.div
-        className="text-center mb-12"
+        className="mb-12 text-center"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
         variants={fadeInUp}
       >
-        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        <h2 className={`mb-4 text-3xl font-bold text-gray-900 lg:text-4xl`}>
           예배 시간 안내
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="mx-auto max-w-2xl text-lg text-gray-600">
           하나님께 예배드리는 시간에 함께하세요
         </p>
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        className={`grid grid-cols-1 gap-8 md:grid-cols-3`}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
@@ -77,14 +77,14 @@ function WorshipSchedule() {
           <motion.div key={index} variants={fadeInUp}>
             <Card hover className="text-center">
               <div
-                className={`${service.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4`}
+                className={` ${service.color} mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full`}
               >
                 <service.icon className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <h3 className="mb-2 text-xl font-bold text-gray-900">
                 {service.title}
               </h3>
-              <p className="text-2xl font-bold text-blue-600 mb-3">
+              <p className="mb-3 text-2xl font-bold text-blue-600">
                 {service.time}
               </p>
               <p className="text-gray-600">{service.description}</p>

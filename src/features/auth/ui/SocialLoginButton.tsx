@@ -16,7 +16,7 @@ export const SocialLoginButtons: React.FC = () => {
       {/* Google 로그인 버튼 */}
       <button
         onClick={handleGoogleLogin}
-        className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+        className={`flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 px-4 py-3 transition-colors hover:bg-gray-50`}
       >
         <svg width="20" height="20" viewBox="0 0 24 24">
           <path
@@ -36,13 +36,13 @@ export const SocialLoginButtons: React.FC = () => {
             d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
           />
         </svg>
-        <span className="text-gray-700 font-medium">Google로 계속하기</span>
+        <span className="font-medium text-gray-700">Google로 계속하기</span>
       </button>
 
       {/* Kakao 로그인 버튼 */}
       <button
         onClick={handleKakaoLogin}
-        className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-yellow-400 hover:bg-yellow-500 rounded-lg transition-colors"
+        className={`flex w-full items-center justify-center gap-3 rounded-lg bg-yellow-400 px-4 py-3 transition-colors hover:bg-yellow-500`}
       >
         <svg width="20" height="20" viewBox="0 0 24 24">
           <path
@@ -50,7 +50,7 @@ export const SocialLoginButtons: React.FC = () => {
             d="M12 3C7.03 3 3 6.14 3 10.1c0 2.52 1.65 4.73 4.1 6.09l-.95 3.57c-.09.34.23.63.55.47l4.15-2.73c.37.04.75.06 1.15.06 4.97 0 9-3.14 9-7.1S16.97 3 12 3z"
           />
         </svg>
-        <span className="text-gray-900 font-medium">카카오로 계속하기</span>
+        <span className="font-medium text-gray-900">카카오로 계속하기</span>
       </button>
     </div>
   );
