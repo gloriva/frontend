@@ -3,13 +3,12 @@ import { menuItems } from "@/features/admin/constants/AdminSideBar";
 import type { AdminSideBarType } from "@/entities/admin/common/AdminSideBar";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useCommonStore } from "../store/common";
 
-export default function AdminSideBar({
-  setActiveTab,
-  activeTab,
-  handleMenu,
-  isOpen,
-}: AdminSideBarType) {
+export default function AdminSideBar({ handleMenu, isOpen }: AdminSideBarType) {
+  const tab = useCommonStore((state) => state.activeTab);
+  const changeTab = useCommonStore((state) => state.changeTab);
+
   return (
     <div className="sticky bottom-0 min-h-screen w-64 bg-white shadow-lg">
       <div>
@@ -22,9 +21,9 @@ export default function AdminSideBar({
             {menuItems.map((item) => (
               <li key={item.id}>
                 <button
-                  onClick={() => setActiveTab(item.id)}
+                  onClick={() => changeTab(item.id)}
                   className={`flex w-full items-center rounded-lg px-4 py-3 text-left transition-colors ${
-                    activeTab === item.id
+                    tab === item.id
                       ? "border-r-2 border-blue-700 bg-blue-50 text-blue-700"
                       : `text-gray-700 hover:bg-gray-50`
                   } `}
