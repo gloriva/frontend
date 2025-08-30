@@ -10,12 +10,14 @@ import MyPage from "@/pages/myPage";
 import Announcements from "@/pages/home/announcement";
 import Location from "@/pages/home/location";
 import Admin from "@/pages/Admin";
+import AuthPage from "@/pages/auth/ui/AuthPage";
 
 const Router = () => (
   <Routes>
     <Route path="/" element={<Landing />} />
     <Route path="/login" element={<Login />} />
     <Route path="/admin" element={<Admin />} />
+    <Route path="/auth" element={<AuthPage />} />
     <Route path="/home/*" element={<HomePageLayout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<AboutPage />} />
