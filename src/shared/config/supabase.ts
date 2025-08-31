@@ -7,6 +7,12 @@ if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Supabase 환경변수가 설정되지 않았습니다.')
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true
+  }
+})
 
 
