@@ -11,20 +11,20 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className={`mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8`}>
+        <div className={`grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4`}>
           {/* 교회 정보 */}
-          <div className="col-span-1 lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-blue-600 p-2 rounded-lg">
+          <div className={`col-span-1 lg:col-span-2`}>
+            <div className="mb-4 flex items-center space-x-3">
+              <div className="rounded-lg bg-blue-600 p-2">
                 <Church className="h-6 w-6 text-white" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">은혜교회</h3>
-                <p className="text-gray-400 text-sm">Grace Church</p>
+                <p className="text-sm text-gray-400">Grace Church</p>
               </div>
             </div>
-            <p className="text-gray-300 mb-4 leading-relaxed">
+            <p className="mb-4 leading-relaxed text-gray-300">
               하나님의 은혜와 사랑을 전하며, 지역사회와 함께 성장하는
               교회입니다. 모든 분들을 따뜻하게 환영합니다.
             </p>
@@ -46,12 +46,12 @@ const Footer = () => {
 
           {/* 빠른 링크 */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">빠른 링크</h4>
+            <h4 className="mb-4 text-lg font-semibold">빠른 링크</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
                   href="/about"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className={`text-gray-300 transition-colors hover:text-white`}
                 >
                   교회소개
                 </a>
@@ -59,7 +59,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/worship"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className={`text-gray-300 transition-colors hover:text-white`}
                 >
                   예배안내
                 </a>
@@ -67,7 +67,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/education"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className={`text-gray-300 transition-colors hover:text-white`}
                 >
                   교육부서
                 </a>
@@ -75,7 +75,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/announcements"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className={`text-gray-300 transition-colors hover:text-white`}
                 >
                   공지사항
                 </a>
@@ -83,7 +83,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/gallery"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className={`text-gray-300 transition-colors hover:text-white`}
                 >
                   갤러리
                 </a>
@@ -91,7 +91,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/location"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className={`text-gray-300 transition-colors hover:text-white`}
                 >
                   오시는길
                 </a>
@@ -101,13 +101,13 @@ const Footer = () => {
 
           {/* SNS 및 연락처 */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">소셜 미디어</h4>
-            <div className="flex space-x-4 mb-6">
+            <h4 className="mb-4 text-lg font-semibold">소셜 미디어</h4>
+            <div className="mb-6 flex space-x-4">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 p-3 rounded-lg hover:bg-blue-600 transition-colors"
+                className={`rounded-lg bg-gray-800 p-3 transition-colors hover:bg-blue-600`}
               >
                 <Facebook className="h-5 w-5" />
               </a>
@@ -115,7 +115,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 p-3 rounded-lg hover:bg-pink-600 transition-colors"
+                className={`rounded-lg bg-gray-800 p-3 transition-colors hover:bg-pink-600`}
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -123,13 +123,13 @@ const Footer = () => {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-800 p-3 rounded-lg hover:bg-red-600 transition-colors"
+                className={`rounded-lg bg-gray-800 p-3 transition-colors hover:bg-red-600`}
               >
                 <Youtube className="h-5 w-5" />
               </a>
               <a
                 href="mailto:info@gracechurch.co.kr"
-                className="bg-gray-800 p-3 rounded-lg hover:bg-green-600 transition-colors"
+                className={`rounded-lg bg-gray-800 p-3 transition-colors hover:bg-green-600`}
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -144,15 +144,17 @@ const Footer = () => {
         </div>
 
         {/* 하단 정보 */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
-            <div className="text-sm text-gray-400 mb-4 sm:mb-0">
+        <div className="mt-8 border-t border-gray-800 pt-8">
+          <div
+            className={`flex flex-col items-center justify-between sm:flex-row`}
+          >
+            <div className={`mb-4 text-sm text-gray-400 sm:mb-0`}>
               <p>&copy; 2025 은혜교회. All rights reserved.</p>
             </div>
             <div className="text-sm text-gray-400">
               <p>
                 Designed & Developed by{" "}
-                <span className="text-blue-400 font-medium">
+                <span className="font-medium text-blue-400">
                   Lumi Development Team
                 </span>
               </p>

@@ -28,7 +28,11 @@ export const Section = ({
     lg: "py-20",
   };
 
-  const classes = `${backgroundClasses[background]} ${paddingClasses[padding]} ${className}`;
+  const classes = `
+    ${backgroundClasses[background]}
+    ${paddingClasses[padding]}
+    ${className}
+  `;
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -45,14 +49,16 @@ export const Section = ({
         viewport={{ once: true }}
         variants={fadeInUp}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
+        <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
+          {children}
+        </div>
       </motion.section>
     );
   }
 
   return (
     <section className={classes}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>{children}</div>
     </section>
   );
 };

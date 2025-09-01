@@ -229,12 +229,12 @@ export const WorshipManager: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <div className="rounded-xl bg-white p-6 shadow-sm">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded mb-6"></div>
+          <div className="mb-6 h-8 rounded bg-gray-200"></div>
           <div className="space-y-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-20 bg-gray-200 rounded"></div>
+              <div key={i} className="h-20 rounded bg-gray-200"></div>
             ))}
           </div>
         </div>
@@ -243,8 +243,8 @@ export const WorshipManager: React.FC = () => {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm">
-      <div className="p-6 border-b border-gray-200">
+    <div className="rounded-xl bg-white shadow-sm">
+      <div className="border-b border-gray-200 p-6">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold text-gray-900">예배 일정 관리</h2>
           <Button onClick={handleCreate} icon={Plus}>
@@ -255,8 +255,8 @@ export const WorshipManager: React.FC = () => {
 
       <div className="p-6">
         {schedules.length === 0 ? (
-          <div className="text-center py-12">
-            <Clock className="h-12 w-12 text-gray-300 mx-auto mb-4" />
+          <div className="py-12 text-center">
+            <Clock className="mx-auto mb-4 h-12 w-12 text-gray-300" />
             <p className="text-gray-500">등록된 예배 일정이 없습니다</p>
             {/* <Button onClick={handleCreate} className="mt-4">
               첫 예배 일정 추가하기
@@ -267,52 +267,54 @@ export const WorshipManager: React.FC = () => {
             {schedules.map((schedule) => (
               <motion.div
                 key={schedule._id}
-                className={`border rounded-lg p-4 transition-all ${
+                className={`rounded-lg border p-4 transition-all ${
                   schedule.isActive
-                    ? "border-gray-200 hover:shadow-md"
+                    ? `border-gray-200 hover:shadow-md`
                     : "border-gray-100 bg-gray-50"
-                }`}
+                } `}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-2">
+                    <div className="mb-2 flex items-center space-x-3">
                       <h3
                         className={`text-lg font-semibold ${
                           schedule.isActive ? "text-gray-900" : "text-gray-500"
-                        }`}
+                        } `}
                       >
                         {schedule.title}
                       </h3>
                       <span
-                        className={`px-2 py-1 text-xs font-medium rounded-full ${
+                        className={`rounded-full px-2 py-1 text-xs font-medium ${
                           schedule.isActive
                             ? "bg-green-100 text-green-800"
                             : "bg-gray-100 text-gray-600"
-                        }`}
+                        } `}
                       >
                         {schedule.isActive ? "활성" : "비활성"}
                       </span>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+                    <div
+                      className={`grid grid-cols-1 gap-4 text-sm text-gray-600 md:grid-cols-3`}
+                    >
                       <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-2" />
+                        <Clock className="mr-2 h-4 w-4" />
                         {getDayLabel(schedule.dayOfWeek)} {schedule.time}
                       </div>
                       <div className="flex items-center">
-                        <MapPin className="h-4 w-4 mr-2" />
+                        <MapPin className="mr-2 h-4 w-4" />
                         {schedule.location}
                       </div>
                       {schedule.pastor && (
                         <div className="flex items-center">
-                          <User className="h-4 w-4 mr-2" />
+                          <User className="mr-2 h-4 w-4" />
                           {schedule.pastor}
                         </div>
                       )}
                     </div>
                     {schedule.description && (
-                      <p className="text-sm text-gray-600 mt-2">
+                      <p className="mt-2 text-sm text-gray-600">
                         {schedule.description}
                       </p>
                     )}
@@ -322,9 +324,9 @@ export const WorshipManager: React.FC = () => {
                       onClick={() => toggleActive(schedule)}
                       className={`p-2 transition-colors ${
                         schedule.isActive
-                          ? "text-green-600 hover:text-green-700"
-                          : "text-gray-400 hover:text-gray-600"
-                      }`}
+                          ? `text-green-600 hover:text-green-700`
+                          : `text-gray-400 hover:text-gray-600`
+                      } `}
                       title={schedule.isActive ? "비활성화" : "활성화"}
                     >
                       {schedule.isActive ? (
@@ -335,14 +337,14 @@ export const WorshipManager: React.FC = () => {
                     </button>
                     <button
                       onClick={() => handleEdit(schedule)}
-                      className="p-2 text-gray-400 hover:text-blue-600 transition-colors"
+                      className={`p-2 text-gray-400 transition-colors hover:text-blue-600`}
                       title="수정"
                     >
                       <Edit className="h-4 w-4" />
                     </button>
                     <button
                       onClick={() => handleDelete(schedule._id)}
-                      className="p-2 text-gray-400 hover:text-red-600 transition-colors"
+                      className={`p-2 text-gray-400 transition-colors hover:text-red-600`}
                       title="삭제"
                     >
                       <Trash2 className="h-4 w-4" />
@@ -363,9 +365,9 @@ export const WorshipManager: React.FC = () => {
         size="lg"
       >
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className={`grid grid-cols-1 gap-4 md:grid-cols-2`}>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="mb-2 block text-sm font-medium text-gray-700">
                 예배명 *
               </label>
               <input
@@ -374,13 +376,13 @@ export const WorshipManager: React.FC = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, title: e.target.value })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500`}
                 placeholder="예: 주일 대예배"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="mb-2 block text-sm font-medium text-gray-700">
                 요일 *
               </label>
               <select
@@ -388,7 +390,7 @@ export const WorshipManager: React.FC = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, dayOfWeek: e.target.value })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500`}
                 required
               >
                 {dayOptions.map((day) => (
@@ -400,9 +402,9 @@ export const WorshipManager: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className={`grid grid-cols-1 gap-4 md:grid-cols-2`}>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="mb-2 block text-sm font-medium text-gray-700">
                 시간 *
               </label>
               <input
@@ -411,12 +413,12 @@ export const WorshipManager: React.FC = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, time: e.target.value })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500`}
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="mb-2 block text-sm font-medium text-gray-700">
                 장소 *
               </label>
               <input
@@ -425,16 +427,16 @@ export const WorshipManager: React.FC = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, location: e.target.value })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500`}
                 placeholder="예: 본당"
                 required
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className={`grid grid-cols-1 gap-4 md:grid-cols-2`}>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="mb-2 block text-sm font-medium text-gray-700">
                 담당 목사
               </label>
               <input
@@ -443,12 +445,12 @@ export const WorshipManager: React.FC = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, pastor: e.target.value })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500`}
                 placeholder="예: 김은혜 목사"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="mb-2 block text-sm font-medium text-gray-700">
                 정렬 순서
               </label>
               <input
@@ -460,14 +462,14 @@ export const WorshipManager: React.FC = () => {
                     order: parseInt(e.target.value) || 1,
                   })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500`}
                 min="1"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="mb-2 block text-sm font-medium text-gray-700">
               설명
             </label>
             <textarea
@@ -476,7 +478,7 @@ export const WorshipManager: React.FC = () => {
                 setFormData({ ...formData, description: e.target.value })
               }
               rows={3}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className={`w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-transparent focus:ring-2 focus:ring-blue-500`}
               placeholder="예배에 대한 간단한 설명을 입력하세요"
             />
           </div>
@@ -489,14 +491,14 @@ export const WorshipManager: React.FC = () => {
               onChange={(e) =>
                 setFormData({ ...formData, isActive: e.target.checked })
               }
-              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              className={`h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500`}
             />
             <label htmlFor="isActive" className="ml-2 text-sm text-gray-700">
               활성 상태 (체크 해제 시 홈페이지에 표시되지 않습니다)
             </label>
           </div>
 
-          <div className="flex justify-end space-x-3 pt-4 border-t border-gray-200">
+          <div className="flex justify-end space-x-3 border-t border-gray-200 pt-4">
             <Button
               type="button"
               variant="secondary"
