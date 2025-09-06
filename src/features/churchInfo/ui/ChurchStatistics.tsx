@@ -4,23 +4,23 @@ import { stagger } from "@/shared/constants/Stagger";
 
 export default function ChurchStatistics() {
   return (
-    <section className="py-16 bg-blue-600 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-blue-600 py-16 text-white">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
         <motion.div
-          className="text-center mb-12"
+          className="mb-12 text-center"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+          <h2 className={`mb-4 text-3xl font-bold lg:text-4xl`}>
             함께하는 은혜교회
           </h2>
           <p className="text-xl text-blue-100">숫자로 보는 우리 교회의 모습</p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+          className={`grid grid-cols-2 gap-8 lg:grid-cols-4`}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
@@ -33,10 +33,12 @@ export default function ChurchStatistics() {
             { number: "50+", label: "봉사 사역" },
           ].map((stat, index) => (
             <motion.div key={index} className="text-center" variants={fadeInUp}>
-              <div className="text-4xl lg:text-5xl font-bold text-yellow-300 mb-2">
+              <div
+                className={`mb-2 text-4xl font-bold text-yellow-300 lg:text-5xl`}
+              >
                 {stat.number}
               </div>
-              <div className="text-blue-100 text-lg">{stat.label}</div>
+              <div className="text-lg text-blue-100">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
