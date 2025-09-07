@@ -7,11 +7,12 @@ import { normalizeSlug, isValidSlug } from "@/shared/lib/normalizeSlug";
 import { theme } from "@/features/auth/login/ui/theme";
 import { useSignup } from "@/features/auth/signup/model/useSignup";
 import { supabase } from "@/shared/config/supabase";
+import { QRCodeCanvas } from "qrcode.react";
 
 type SlugStatus = "idle" | "checking" | "ok" | "taken" | "invalid";
 
 function clientRandomSlug(len = 9) {
-  // 영문/숫자만으로 9자 생성 
+  // 영문/숫자만으로 9자 생성
   const s = Math.random()
     .toString(36)
     .slice(2, 2 + len)
@@ -29,6 +30,9 @@ export const SignupForm: React.FC = () => {
   const [slugLoading, setSlugLoading] = useState(true);
   const [slugError, setSlugError] = useState<string | null>(null);
 
+  // 회원가입 성공 여부 및 slug 저장
+  const [signupSuccess, setSignupSuccess] = useState(false);
+  const [finalSlug, setFinalSlug] = useState("");
 
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
@@ -152,17 +156,48 @@ export const SignupForm: React.FC = () => {
       if (insertErr) {
         alert(
           insertErr.message.includes("duplicate")
-            ? "해당 주소가 막 등록되었습니다. 다른 주소를 선택해 주세요."
+            ? "해당 주소가 등록되었습니다. 다른 주소를 선택해 주세요."
             : insertErr.message,
         );
         return;
       }
+
+      setSignupSuccess(true);
+      setFinalSlug(finalSlug);
 
       window.location.href = `/${finalSlug}/dashboard`;
     } catch (e) {
       console.error(e);
     }
   };
+
+  if (signupSuccess) {
+    const fullUrl = `https://localhost:3000/${finalSlug}`;
+    return (
+      <div className="flex flex-col items-center space-y-6 py-8">
+        <h2 className="text-lg font-semibold">
+          교회 홈페이지 QR 코드가 생성되었습니다!
+        </h2>
+        <QRCodeCanvas
+          value={fullUrl}
+          size={200}
+          level="H"
+          includeMargin={true}
+        />
+        <p className="text-sm text-gray-600">{fullUrl}</p>
+        <button
+          onClick={() => (window.location.href = `/${finalSlug}/dashboard`)}
+          className={cn(
+            "mt-4 h-12 w-full rounded-xl text-white shadow-lg transition hover:opacity-95 active:scale-[0.99]",
+            "bg-gradient-to-r",
+            theme.brand.gradient,
+          )}
+        >
+          교회 관리로 이동하기
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form className="space-y-4" onSubmit={onSubmit}>

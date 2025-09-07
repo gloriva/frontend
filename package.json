@@ -30,6 +30,7 @@
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.536.0",
     "path": "^0.12.7",
+    "qrcode.react": "^4.2.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.62.0",
