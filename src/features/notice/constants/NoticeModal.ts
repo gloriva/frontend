@@ -1,9 +1,7 @@
-import type { FilteredAnnouncements } from "@/entities/notice/FilteredAnnouncements";
+import type { FilteredAnnouncements } from "@/entities/notice/type";
 
 export interface NoticeModalType {
   selectedAnnouncement: FilteredAnnouncements | null;
-  getCategoryColor: (category: string) => string;
-  formatDate: (dateString: string) => string;
   setSelectedAnnouncement: React.Dispatch<
     React.SetStateAction<FilteredAnnouncements | null>
   >;

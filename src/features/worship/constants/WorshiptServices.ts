@@ -1,0 +1,58 @@
+import { Users, Heart, Book, Clock, Calendar, Music } from "lucide-react";
+
+export const worshipServices = [
+  {
+    title: "주일 대예배",
+    time: "오전 10:30",
+    location: "본당",
+    description: "모든 성도가 함께 드리는 주일 대예배입니다.",
+    icon: Users,
+    color: "bg-blue-500",
+    details: ["찬양과 경배", "말씀 선포", "성찬식 (매월 첫째 주)", "축복기도"],
+  },
+  {
+    title: "주일 오후예배",
+    time: "오후 2:00",
+    location: "본당",
+    description: "깊은 묵상과 기도의 시간입니다.",
+    icon: Heart,
+    color: "bg-purple-500",
+    details: ["찬양과 기도", "말씀 묵상", "간증 나눔", "축복기도"],
+  },
+  {
+    title: "수요 예배",
+    time: "오후 7:30",
+    location: "본당",
+    description: "주중 은혜 충전의 시간입니다.",
+    icon: Book,
+    color: "bg-green-500",
+    details: ["찬양과 기도", "성경공부", "말씀 나눔", "기도회"],
+  },
+  {
+    title: "새벽 예배",
+    time: "오전 6:00",
+    location: "본당",
+    description: "하루를 하나님께 맡기는 시간입니다.",
+    icon: Clock,
+    color: "bg-orange-500",
+    details: ["찬양", "말씀 묵상", "개인 기도", "축복기도"],
+  },
+  {
+    title: "금요 철야예배",
+    time: "오후 10:00",
+    location: "본당",
+    description: "매월 마지막 금요일 철야예배입니다.",
+    icon: Calendar,
+    color: "bg-red-500",
+    details: ["찬양과 경배", "말씀 선포", "통성기도", "새벽 성찬식"],
+  },
+  {
+    title: "특별 예배",
+    time: "시기별 안내",
+    location: "본당",
+    description: "절기별 특별 예배를 드립니다.",
+    icon: Music,
+    color: "bg-indigo-500",
+    details: ["부활절 예배", "추수감사절 예배", "성탄절 예배", "신년 감사예배"],
+  },
+];

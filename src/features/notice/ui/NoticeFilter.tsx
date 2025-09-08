@@ -2,17 +2,14 @@ import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { motion } from "framer-motion";
 import { Filter, Search } from "lucide-react";
 import { categories } from "../constants/categories";
+import React from "react";
+import type { NoticeFilterType } from "@/entities/notice/type";
 
-interface NoticeFilterType {
-  searchTerm: string;
-  inputData(sort: string, value: string): void;
-  selectedCategory: string;
-}
-export default function NoticeFilter({
+const NoticeFilter = ({
   searchTerm,
-  inputData,
+  handleInputChange,
   selectedCategory,
-}: NoticeFilterType) {
+}: NoticeFilterType) => {
   return (
     <section className="border-b bg-white py-8">
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
@@ -32,7 +29,7 @@ export default function NoticeFilter({
               placeholder="공지사항 검색..."
               value={searchTerm}
               id="search"
-              onChange={(e) => inputData(e.target.id, e.target.value)}
+              onChange={(e) => handleInputChange(e.target.id, e.target.value)}
               className={`w-full rounded-lg border border-gray-300 py-2 pr-4 pl-10 focus:border-transparent focus:ring-2 focus:ring-purple-500`}
             />
           </div>
@@ -45,7 +42,9 @@ export default function NoticeFilter({
                 <button
                   key={category}
                   id="category"
-                  onClick={(e) => inputData(e.currentTarget.id, category)}
+                  onClick={(e) =>
+                    handleInputChange(e.currentTarget.id, category)
+                  }
                   className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                     selectedCategory === category
                       ? "bg-purple-600 text-white"
@@ -61,4 +60,6 @@ export default function NoticeFilter({
       </div>
     </section>
   );
-}
+};
+
+export default React.memo(NoticeFilter);

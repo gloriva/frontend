@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Star, Tag, Calendar, Eye } from "lucide-react";
 import type { NoticeModalType } from "../constants/NoticeModal";
+import { getCategoryColor } from "@/shared/utils/CategoryColor";
+import { formatDate } from "@/shared/utils/FormateDate";
 
 export default function NoticeModal({
   selectedAnnouncement,
-  getCategoryColor,
-  formatDate,
   setSelectedAnnouncement,
 }: NoticeModalType) {
   return (

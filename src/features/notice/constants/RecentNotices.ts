@@ -1,4 +1,4 @@
-import type { Notice } from "@/entities/notice/Notice";
+import type { Notice } from "@/entities/notice/type";
 
 export const recentNotices: Notice[] = [
   {
