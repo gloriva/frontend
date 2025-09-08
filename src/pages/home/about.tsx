@@ -1,9 +1,5 @@
-import {
-  ChurchHistory,
-  ChurchStatistics,
-  ChurchVision,
-  PastorIntroduction,
-} from "@/features/churchInfo";
+import { ChurchVision, ChurchHistory } from "@/features/about";
+import { PastorIntroduction } from "@/features/ministry";
 import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
 import { motion } from "framer-motion";
@@ -38,7 +34,7 @@ const About = () => {
       <ChurchVision />
       <PastorIntroduction />
       <ChurchHistory />
-      <ChurchStatistics />
+      {/* <ChurchStatistics /> */}
     </div>
   );
 };

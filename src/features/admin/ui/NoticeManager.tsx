@@ -21,7 +21,8 @@ export const NoticeManager = () => {
   const [editingAnnouncement, setEditingAnnouncement] =
     useState<Announcement | null>(null);
 
-  const useFormData = useNoticeManagerStore((state) => state.setFormData);
+  // 사용하지 않는 변수 제거
+  const setFormData = useNoticeManagerStore((state) => state.setFormData); // 함수 이름 규칙에 따른 이름 수정
   const modalOpen = useCommonStore((state) => state.isModalOpen);
   const handleModal = useCommonStore((state) => state.handleModal);
   const onClose = useCommonStore((state) => state.onClose);
@@ -46,7 +47,7 @@ export const NoticeManager = () => {
 
   const handleCreate = () => {
     setEditingAnnouncement(null);
-    useFormData({
+    setFormData({
       title: "",
       content: "",
       category: "일반",

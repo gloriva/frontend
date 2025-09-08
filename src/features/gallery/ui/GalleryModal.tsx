@@ -1,23 +1,25 @@
-import type { GalleryModalType } from "@/entities/gallery/GalleryModal";
+import type { GalleryModalType } from "@/entities/gallery/type";
+import { getCategoryColor } from "@/shared/utils/CategoryColor";
+import { formatDate } from "@/shared/utils/FormateDate";
 import { motion } from "framer-motion";
 import { X, Calendar, Camera, Eye, Heart } from "lucide-react";
 
 export default function GalleryModal({
   selectedImage,
   setSelectedImage,
-  getCategoryColor,
-  formatDate,
 }: GalleryModalType) {
   return (
     selectedImage && (
       <div
         className={`bg-opacity-90 fixed inset-0 z-50 flex items-center justify-center bg-black p-4`}
+        onClick={() => setSelectedImage(null)}
       >
         <motion.div
           className="relative w-full max-w-4xl"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
+          onClick={(e) => e.stopPropagation()}
         >
           {/* 닫기 버튼 */}
           <button

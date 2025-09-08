@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
-import { ChurchHistoryData } from "@/features/churchInfo/constants/ChurchHistoryData";
+import { ChurchHistoryData } from "@/features/about/constants/ChurchHistoryData";
 
 export default function ChurchHistory() {
   return (

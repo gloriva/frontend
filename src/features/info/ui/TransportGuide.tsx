@@ -1,7 +1,7 @@
 import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
 import { motion } from "framer-motion";
-import { transportOptions } from "@/features/guide/constants/TransportOptions";
+import { transportOptions } from "@/features/info/constants/TransportOptions";
 
 export default function TransportGuide() {
   return (
