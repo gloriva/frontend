@@ -2,7 +2,7 @@ import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { motion } from "framer-motion";
 import { Filter } from "lucide-react";
 import { categories } from "@/features/gallery/constants/galleryCategories";
-import type { GalleryFilterType } from "@/entities/gallery/GalleryFilter";
+import type { GalleryFilterType } from "@/entities/gallery/type";
 
 export default function GalleryFilter({
   setSelectedCategory,

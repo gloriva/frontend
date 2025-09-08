@@ -1,14 +1,14 @@
-import type { GalleryGridType } from "@/entities/gallery/GalleryGrid";
+import type { GalleryGridType } from "@/entities/gallery/type";
 import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
+import { getCategoryColor } from "@/shared/utils/CategoryColor";
+import { formatDate } from "@/shared/utils/FormateDate";
 import { motion } from "framer-motion";
 import { Camera, Eye, Heart } from "lucide-react";
 
 export default function GalleryGrid({
   filteredItems,
-  formatDate,
   setSelectedImage,
-  getCategoryColor,
 }: GalleryGridType) {
   return (
     <section className="py-16">
