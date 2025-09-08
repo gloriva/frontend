@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import { Calendar, Heart, Clock, type LucideIcon } from "lucide-react";
 import { Card } from "@/shared/ui/Card";
 import { Section } from "@/shared/ui/Section";
-
+import { fadeInUp } from "@/shared/constants/FadeInUp";
+import { stagger } from "@/shared/constants/Stagger";
+// 반복되는 값 import로 불러오기
 interface WorshipService {
   title: string;
   time: string;
@@ -35,20 +37,6 @@ const worshipServices: WorshipService[] = [
   },
 ];
 function WorshipSchedule() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-  };
-
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   return (
     <Section background="white">
       <motion.div

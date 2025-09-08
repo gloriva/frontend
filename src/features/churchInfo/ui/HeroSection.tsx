@@ -2,22 +2,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Clock } from "lucide-react";
 import { Button } from "@/shared/ui/Button";
+import { fadeInUp } from "@/shared/constants/FadeInUp";
+import { stagger } from "@/shared/constants/Stagger";
 
+// 반복되는 값 import로 불러오기
 export default function HeroSection() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-  };
-
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   return (
     <section
       className={`relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white`}
