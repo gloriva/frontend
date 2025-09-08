@@ -7,7 +7,7 @@ import path from "path";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    port: 3000,
+    port: 3001,
     cors: {
       // 브라우저를 통해 접근하고자 하는 출처
       origin: "http://localhost:3000",

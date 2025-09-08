@@ -12,15 +12,15 @@ export default function NoticeList({
 }: NoticeListType) {
   return (
     <section className="py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
         {filteredAnnouncements.length === 0 ? (
           <motion.div
-            className="text-center py-16"
+            className="py-16 text-center"
             initial="initial"
             animate="animate"
             variants={fadeInUp}
           >
-            <p className="text-gray-500 text-lg">검색 결과가 없습니다.</p>
+            <p className="text-lg text-gray-500">검색 결과가 없습니다.</p>
           </motion.div>
         ) : (
           <motion.div
@@ -32,41 +32,45 @@ export default function NoticeList({
             {filteredAnnouncements.map((announcement) => (
               <motion.div
                 key={announcement.id}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+                className={`cursor-pointer rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg`}
                 variants={fadeInUp}
                 id="announcement"
                 onClick={() => setSelectedAnnouncement(announcement)}
               >
                 <div className="p-6">
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="mb-4 flex items-start justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center space-x-3 mb-2">
+                      <div className="mb-2 flex items-center space-x-3">
                         {announcement.isImportant && (
-                          <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full flex items-center">
-                            <Star className="h-3 w-3 mr-1" />
+                          <span
+                            className={`flex items-center rounded-full bg-red-100 px-2 py-1 text-xs text-red-600`}
+                          >
+                            <Star className="mr-1 h-3 w-3" />
                             중요
                           </span>
                         )}
                         <span
-                          className={`text-xs px-2 py-1 rounded-full ${getCategoryColor(announcement.category)}`}
+                          className={`rounded-full px-2 py-1 text-xs ${getCategoryColor(announcement.category)} `}
                         >
-                          <Tag className="h-3 w-3 mr-1 inline" />
+                          <Tag className="mr-1 inline h-3 w-3" />
                           {announcement.category}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-purple-600 transition-colors">
+                      <h3
+                        className={`mb-2 text-xl font-bold text-gray-900 transition-colors hover:text-purple-600`}
+                      >
                         {announcement.title}
                       </h3>
-                      <p className="text-gray-600 line-clamp-2 mb-4">
+                      <p className="mb-4 line-clamp-2 text-gray-600">
                         {announcement.content}
                       </p>
                       <div className="flex items-center space-x-6 text-sm text-gray-500">
                         <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-1" />
+                          <Calendar className="mr-1 h-4 w-4" />
                           {formatDate(announcement.createdAt)}
                         </div>
                         <div className="flex items-center">
-                          <Eye className="h-4 w-4 mr-1" />
+                          <Eye className="mr-1 h-4 w-4" />
                           {announcement.views}
                         </div>
                         <span>작성자: {announcement.author}</span>
@@ -76,7 +80,7 @@ export default function NoticeList({
                       <img
                         src={announcement.imageUrl}
                         alt={announcement.title}
-                        className="w-24 h-24 object-cover rounded-lg ml-6"
+                        className="ml-6 h-24 w-24 rounded-lg object-cover"
                       />
                     )}
                   </div>

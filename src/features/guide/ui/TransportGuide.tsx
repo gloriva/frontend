@@ -5,16 +5,16 @@ import { transportOptions } from "@/features/guide/constants/TransportOptions";
 
 export default function TransportGuide() {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-gray-50 py-16">
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className={`mb-6 text-3xl font-bold text-gray-900 lg:text-4xl`}>
             교통편 안내
           </h2>
           <p className="text-lg text-gray-600">
@@ -32,28 +32,28 @@ export default function TransportGuide() {
           {transportOptions.map((transport, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
+              className="overflow-hidden rounded-xl bg-white shadow-lg"
               variants={fadeInUp}
             >
-              <div className={`${transport.color} p-6 text-white`}>
+              <div className={` ${transport.color} p-6 text-white`}>
                 <div className="flex items-center">
-                  <transport.icon className="h-8 w-8 mr-4" />
+                  <transport.icon className="mr-4 h-8 w-8" />
                   <h3 className="text-2xl font-bold">{transport.title}</h3>
                 </div>
               </div>
 
               <div className="p-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className={`grid grid-cols-1 gap-6 lg:grid-cols-2`}>
                   {transport.routes.map((route, routeIndex) => (
                     <div
                       key={routeIndex}
-                      className="border border-gray-200 rounded-lg p-6"
+                      className="rounded-lg border border-gray-200 p-6"
                     >
-                      <div className="flex items-center justify-between mb-4">
+                      <div className="mb-4 flex items-center justify-between">
                         <h4 className="text-lg font-semibold text-gray-900">
                           {route.line}
                         </h4>
-                        <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">
+                        <span className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
                           {route.walkTime}
                         </span>
                       </div>
