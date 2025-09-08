@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
 import { NoticeFilter } from "@/features/notice";
 import { NoticeList } from "@/features/notice";
-import type { FilteredAnnouncements } from "@/entities/notice/FilteredAnnouncements";
+import type { FilteredAnnouncements } from "@/entities/notice/type";
 import { noticeData } from "@/features/notice/constants/notice";
 import { NoticeModal } from "@/features/notice";
+import { inputNoticeData } from "@/features/notice/utils/inputNoticeData";
 
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState<FilteredAnnouncements[]>(
@@ -19,18 +20,12 @@ const Announcements = () => {
   const [selectedAnnouncement, setSelectedAnnouncement] =
     useState<FilteredAnnouncements | null>(null);
 
-  function inputData(sort: string, value: string) {
-    switch (sort) {
-      case "search":
-        setSearchTerm(value);
-        break;
-      case "category":
-        setSelectedCategory(value);
-        break;
-      default:
-        break;
-    }
-  }
+  const handleInputChange = useCallback(
+    (sort: string, value: string) => {
+      inputNoticeData(sort, value, setSearchTerm, setSelectedCategory);
+    },
+    [setSearchTerm, setSelectedCategory],
+  );
 
   const fetchAnnouncements = async () => {
     try {
@@ -48,36 +43,17 @@ const Announcements = () => {
     fetchAnnouncements();
   }, []);
 
-  const filteredAnnouncements = announcements.filter((announcement) => {
-    const matchesCategory =
-      selectedCategory === "전체" || announcement.category === selectedCategory;
-    const matchesSearch =
-      announcement.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      announcement.content.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+  const filteredAnnouncements = useMemo(() => {
+    return announcements.filter((announcement) => {
+      const matchesCategory =
+        selectedCategory === "전체" ||
+        announcement.category === selectedCategory;
+      const matchesSearch =
+        announcement.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        announcement.content.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
     });
-  };
-
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      일반: "bg-gray-100 text-gray-600",
-      예배: "bg-blue-100 text-blue-600",
-      교육: "bg-green-100 text-green-600",
-      행사: "bg-purple-100 text-purple-600",
-      긴급: "bg-red-100 text-red-600",
-    };
-    return (
-      colors[category as keyof typeof colors] || "bg-gray-100 text-gray-600"
-    );
-  };
+  }, [announcements, searchTerm, selectedCategory]);
 
   if (loading) {
     return (
@@ -120,19 +96,15 @@ const Announcements = () => {
       </section>
       <NoticeFilter
         searchTerm={searchTerm}
-        inputData={inputData}
+        handleInputChange={handleInputChange}
         selectedCategory={selectedCategory}
       />
       <NoticeList
         filteredAnnouncements={filteredAnnouncements}
-        getCategoryColor={getCategoryColor}
         setSelectedAnnouncement={setSelectedAnnouncement}
-        formatDate={formatDate}
       />
       <NoticeModal
         selectedAnnouncement={selectedAnnouncement}
-        getCategoryColor={getCategoryColor}
-        formatDate={formatDate}
         setSelectedAnnouncement={setSelectedAnnouncement}
       />
     </div>

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
-import type { GalleryItem } from "@/entities/gallery/GalleryItem";
+import type { GalleryItem } from "@/entities/gallery/type";
 import { events } from "@/features/gallery/constants/mockData";
 import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
@@ -34,31 +34,14 @@ const Gallery = () => {
     fetchGalleryItems();
   }, []);
 
-  const filteredItems = galleryItems.filter(
-    (item) => selectedCategory === "전체" || item.category === selectedCategory,
+  const filteredItems = useMemo(
+    () =>
+      galleryItems.filter(
+        (item) =>
+          selectedCategory === "전체" || item.category === selectedCategory,
+      ),
+    [galleryItems, selectedCategory],
   );
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("ko-KR", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
-
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      예배: "bg-blue-100 text-blue-600",
-      교육: "bg-green-100 text-green-600",
-      행사: "bg-purple-100 text-purple-600",
-      봉사: "bg-orange-100 text-orange-600",
-      기타: "bg-gray-100 text-gray-600",
-    };
-    return (
-      colors[category as keyof typeof colors] || "bg-gray-100 text-gray-600"
-    );
-  };
 
   if (loading) {
     return <GalleryLoading />;
@@ -96,16 +79,12 @@ const Gallery = () => {
       />
       <GalleryGrid
         filteredItems={filteredItems}
-        formatDate={formatDate}
         setSelectedImage={setSelectedImage}
-        getCategoryColor={getCategoryColor}
       />
       {/* 이미지 상세 모달 */}
       <GalleryModal
         selectedImage={selectedImage}
         setSelectedImage={setSelectedImage}
-        getCategoryColor={getCategoryColor}
-        formatDate={formatDate}
       />
     </div>
   );

@@ -1,5 +1,4 @@
-import { ChurchContact } from "@/features/contact";
-import { ParkingGuide, TransportGuide } from "@/features/guide";
+import { ChurchContact, ParkingGuide, TransportGuide } from "@/features/info";
 import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
 import { motion } from "framer-motion";

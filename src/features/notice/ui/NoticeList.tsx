@@ -1,15 +1,16 @@
-import type { NoticeListType } from "@/entities/notice/NoticeList";
+import type { NoticeListType } from "@/entities/notice/type";
 import { fadeInUp } from "@/shared/constants/FadeInUp";
 import { stagger } from "@/shared/constants/Stagger";
+import { getCategoryColor } from "@/shared/utils/CategoryColor";
+import { formatDate } from "@/shared/utils/FormateDate";
 import { motion } from "framer-motion";
 import { Calendar, Eye, Star, Tag } from "lucide-react";
+import React from "react";
 
-export default function NoticeList({
+const NoticeList = ({
   filteredAnnouncements,
-  getCategoryColor,
   setSelectedAnnouncement,
-  formatDate,
-}: NoticeListType) {
+}: NoticeListType) => {
   return (
     <section className="py-16">
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`}>
@@ -92,4 +93,6 @@ export default function NoticeList({
       </div>
     </section>
   );
-}
+};
+
+export default React.memo(NoticeList);

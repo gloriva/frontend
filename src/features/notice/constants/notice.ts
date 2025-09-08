@@ -1,4 +1,4 @@
-import type { FilteredAnnouncements } from "@/entities/notice/FilteredAnnouncements";
+import type { FilteredAnnouncements } from "@/entities/notice/type";
 
 export const noticeData: FilteredAnnouncements[] = [
   {
